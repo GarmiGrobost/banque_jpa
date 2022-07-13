@@ -1,11 +1,12 @@
+package fr.diginamic.entites;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import fr.diginamic.repository.PersistenceHelper;
 import jakarta.persistence.EntityManager;
-import repository.PersistenceHelper;
 
 public class BanqueRepository {
 

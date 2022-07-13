@@ -1,10 +1,15 @@
-package repository;
+package fr.diginamic.repository;
 
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
+/**
+ * classe regouppant toutes les informations ermettant d'acceder a la bas e de donnees
+ * 
+ * @author formation
+ */
 public class PersistenceHelper {
    // private static final String MYSQL_PERSISTENCE_UNIT = "mysql-pu";
     private static final String MARIADB_PERSISTENCE_UNIT = "my-persistence-unit";

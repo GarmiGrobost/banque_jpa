@@ -1,3 +1,4 @@
+package fr.diginamic.entites;
 import java.util.List;
 
 import jakarta.persistence.Column;

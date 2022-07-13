@@ -1,3 +1,4 @@
+package fr.diginamic.entites;
 import java.time.LocalDate;
 import java.util.List;
 
