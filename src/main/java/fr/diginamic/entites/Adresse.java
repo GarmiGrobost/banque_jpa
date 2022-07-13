@@ -1,6 +1,6 @@
 package fr.diginamic.entites;
+
 import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,31 +10,30 @@ import jakarta.persistence.OneToOne;
 @Entity
 public class Adresse {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @Column(length = 64, nullable = false)
-    private String ville;
-    
-    @Column(length = 64, nullable = false)
-    private String rue;
-    
-    private int numero;
-    
-    private int codePostal;
+	@Column(length = 64, nullable = false)
+	private String ville;
+
+	@Column(length = 64, nullable = false)
+	private String rue;
+
+	private int numero;
+
+	private int codePostal;
 
 	public Adresse() {
-		super();
-		this.ville = ville;
-		this.rue = rue;
-		this.numero = numero;
-		this.codePostal = codePostal;
+		ville = ville;
+		rue = rue;
+		numero = numero;
+		codePostal = codePostal;
 	}
-	
-    // Optionnel
-    @OneToOne(mappedBy = "adresse")
-    private Client client;
+
+	// Optionnel
+	@OneToOne(mappedBy = "adresse")
+	private Client client;
 
 	/**
 	 * @return the id
@@ -105,6 +104,5 @@ public class Adresse {
 	public void setCodePostal(int codePostal) {
 		this.codePostal = codePostal;
 	}
-    
-    
+
 }

@@ -1,16 +1,12 @@
 package fr.diginamic.entites;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 
+import jakarta.persistence.Entity;
 
 @Entity
 public class LivretA extends Compte {
-	
+
 	private Double taux;
 
-	
-	
 	/**
 	 * @return the taux
 	 */
@@ -24,6 +20,5 @@ public class LivretA extends Compte {
 	public void setTaux(Double taux) {
 		this.taux = taux;
 	}
-	
-	
+
 }

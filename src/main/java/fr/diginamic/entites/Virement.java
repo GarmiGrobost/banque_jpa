@@ -1,14 +1,14 @@
 package fr.diginamic.entites;
+
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
 
 @Entity
 public class Virement extends Operation {
-	
+
 	private String beneficiaire;
 
-	
 	public Virement() {
 	}
 
@@ -30,7 +30,5 @@ public class Virement extends Operation {
 	public void setBeneficiaire(String beneficiaire) {
 		this.beneficiaire = beneficiaire;
 	}
-	
-	
 
 }

@@ -1,7 +1,7 @@
 package fr.diginamic.entites;
+
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,24 +12,23 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 public class Compte {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
-    @Column(length = 64, nullable = false)
-    private String numero;
-    
-    private Double solde;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@Column(length = 64, nullable = false)
+	private String numero;
+
+	private Double solde;
 
 	public Compte() {
-		super();
-		this.numero = numero;
-		this.solde = solde;
+		numero = numero;
+		solde = solde;
 	}
-	
+
 	@OneToMany(mappedBy = "compte")
 	private List<Operation> operations;
-	
+
 	@ManyToMany(mappedBy = "comptes")
 	private List<Client> clients;
 
@@ -74,19 +73,21 @@ public class Compte {
 	public void setSolde(Double solde) {
 		this.solde = solde;
 	}
-	
-    public List<Client> getClients() {
-        return clients;
-    }
-    public void setClients(List<Client> clients) {
-        this.clients = clients;
-    }
-    public List<Operation> getOperations() {
-        return operations;
-    }
-    public void setOperations(List<Operation> operations) {
-        this.operations = operations;
-    }
-    
-    
+
+	public List<Client> getClients() {
+		return clients;
+	}
+
+	public void setClients(List<Client> clients) {
+		this.clients = clients;
+	}
+
+	public List<Operation> getOperations() {
+		return operations;
+	}
+
+	public void setOperations(List<Operation> operations) {
+		this.operations = operations;
+	}
+
 }

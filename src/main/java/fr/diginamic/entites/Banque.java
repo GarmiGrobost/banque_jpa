@@ -1,4 +1,5 @@
 package fr.diginamic.entites;
+
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -11,21 +12,21 @@ import jakarta.persistence.OneToMany;
 @Entity
 public class Banque {
 
-	 @Id
-	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-	 private Long id;
-	 
-	 @Column(length = 64, nullable = false)
-	 private String nom;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@Column(length = 64, nullable = false)
+	private String nom;
 
 	public Banque() {
-		super();
-		this.id = id;
-		this.nom = nom;
+		id = id;
+		nom = nom;
 	}
 
 	@OneToMany(mappedBy = "banque")
 	private List<Client> clients;
+
 	/**
 	 * @return the id
 	 */
@@ -53,13 +54,13 @@ public class Banque {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	 
+
 	public List<Client> getClients() {
-	    return clients;
+		return clients;
 	}
 
-	 public void setClients(List<Client> clients) {
-	     this.clients = clients;
-	 }
-	 
+	public void setClients(List<Client> clients) {
+		this.clients = clients;
+	}
+
 }
