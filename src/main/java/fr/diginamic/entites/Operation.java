@@ -7,9 +7,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.ManyToOne;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Operation {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +25,9 @@ public class Operation {
 
 	private Double montant;
 
+	@ManyToOne
+	private Compte compte;
+
 	public Operation() {
 	}
 
@@ -31,15 +37,11 @@ public class Operation {
 		montant = montant2;
 	}
 
-	public Operation(LocalDateTime of, String string, double d, Compte compte1) {
+	public Operation(LocalDateTime of, String string, double d) {
 		motif = string;
 		date = of;
 		montant = d;
-		compte = compte1;
 	}
-
-	@ManyToOne
-	private Compte compte;
 
 	/**
 	 * @return the id

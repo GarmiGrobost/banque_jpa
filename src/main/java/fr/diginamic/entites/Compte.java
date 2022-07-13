@@ -7,10 +7,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Compte {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,16 +24,18 @@ public class Compte {
 
 	private Double solde;
 
-	public Compte() {
-		numero = numero;
-		solde = solde;
-	}
-
 	@OneToMany(mappedBy = "compte")
 	private List<Operation> operations;
 
 	@ManyToMany(mappedBy = "comptes")
 	private List<Client> clients;
+
+	public Compte() {}
+
+	public Compte(String numero, Double solde) {
+		this.numero = numero;
+		this.solde = solde;
+	}
 
 	/**
 	 * @return the id

@@ -14,7 +14,7 @@ public class Virement extends Operation {
 
 	public Virement(String motif, LocalDateTime date, Double montant, String beneficiaire) {
 		super(motif, date, montant);
-		// TODO Auto-generated constructor stub
+		this.beneficiaire = beneficiaire;
 	}
 
 	/**

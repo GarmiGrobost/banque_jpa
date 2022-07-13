@@ -3,6 +3,7 @@ package fr.diginamic.repository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.RollbackException;
 
 /**
  * classe regouppant toutes les informations ermettant d'acceder a la bas e de
@@ -29,13 +30,27 @@ public class PersistenceHelper {
 	}
 
 	/**
+	 * Ouvre une transaction sur l'entityManager fourni.
+	 *
+	 * @param entityManager l'Entity Manager dont on veut ouvrir la transaction.
+	 */
+	public static void beginTx(EntityManager entityManager) {
+		System.out.println("transaction  non demarree");
+		entityManager.getTransaction().begin();
+		System.out.println("transaction  en cours");
+	}
+
+	/**
 	 * Récupère la transaction en cours de l'entityManager fourni, effectue un
 	 * commit dessus et ferme l'entityManager.
 	 *
 	 * @param entityManager un Entity Manager qui gère une transaction.
 	 */
 	public static void commitTxAndClose(EntityManager entityManager) {
+		
+		System.out.println("transaction en cours");
 		entityManager.getTransaction().commit();
+		System.out.println("transaction termine");
 		entityManager.close();
 	}
 
@@ -46,16 +61,8 @@ public class PersistenceHelper {
 	 * @param entityManager un Entity Manager qui gère une transaction.
 	 */
 	public static void rollbackTxAndClose(EntityManager entityManager) {
+		System.out.println("transaction erreur de transaction");
 		entityManager.getTransaction().rollback();
 		entityManager.close();
-	}
-
-	/**
-	 * Ouvre une transaction sur l'entityManager fourni.
-	 *
-	 * @param entityManager l'Entity Manager dont on veut ouvrir la transaction.
-	 */
-	public static void beginTx(EntityManager entityManager) {
-		entityManager.getTransaction().begin();
 	}
 }

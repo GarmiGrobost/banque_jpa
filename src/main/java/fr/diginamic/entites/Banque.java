@@ -19,13 +19,18 @@ public class Banque {
 	@Column(length = 64, nullable = false)
 	private String nom;
 
-	public Banque() {
-		id = id;
-		nom = nom;
-	}
-
 	@OneToMany(mappedBy = "banque")
 	private List<Client> clients;
+
+	public Banque() {
+	}
+
+	
+	public Banque(String nom, List<Client> clients) {
+		this.nom = nom;
+		this.clients = clients;
+	}
+
 
 	/**
 	 * @return the id

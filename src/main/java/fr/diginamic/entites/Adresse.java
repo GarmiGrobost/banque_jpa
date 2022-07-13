@@ -24,16 +24,20 @@ public class Adresse {
 
 	private int codePostal;
 
-	public Adresse() {
-		ville = ville;
-		rue = rue;
-		numero = numero;
-		codePostal = codePostal;
-	}
-
 	// Optionnel
 	@OneToOne(mappedBy = "adresse")
 	private Client client;
+
+	public Adresse() {
+
+	}
+
+	public Adresse(String ville, String rue, int numero, int codePostal) {
+		this.ville = ville;
+		this.rue = rue;
+		this.numero = numero;
+		this.codePostal = codePostal;
+	}
 
 	/**
 	 * @return the id

@@ -26,20 +26,25 @@ public class Client {
 
 	private LocalDate dateNaissance;
 
-	public Client() {
-		nom = nom;
-		prenom = prenom;
-		dateNaissance = dateNaissance;
-	}
-
 	@OneToOne
 	private Adresse adresse;
 
 	@ManyToMany
 	private List<Compte> comptes;
 
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private Banque banque;
+
+	public Client() {
+	}
+
+
+	public Client(String nom, String prenom, LocalDate dateNaissance) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateNaissance = dateNaissance;
+	}
+
 
 	/**
 	 * @return the id
